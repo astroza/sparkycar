@@ -186,6 +186,7 @@ int server_loop(int *pwm_fds, int server_fd)
 				perror("recvfrom");
 				break;
 			}
+			printf("w=%hhd s=%hhd\n", state.wheels, state.steering);
 			sync_vehicle_state(pwm_fds, &state);
 		}
 	}

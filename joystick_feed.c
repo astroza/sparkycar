@@ -16,6 +16,8 @@
 #include <linux/input.h>
 #include "vehicle.h"
 
+#define min(a, b) (a < b? a : b)
+
 double get_time()
 {
 	struct timeval tv;
@@ -49,7 +51,7 @@ int joystick_loop(int fd, int endpoint_fd)
 				// from joystick
 				// 0 (L), 127 (C), 255 (R)
 				// for vehicle -127 (L), 0 (C), 127 (R)
-				state.steering = ev.value - 127;
+				state.steering = min(254, ev.value) - 127;
 				break;
 			// Reverse
 			case 2:
