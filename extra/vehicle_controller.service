@@ -1,0 +1,12 @@
+[Unit]
+Description=Vehicle service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/vehicle_controller
+
+[Install]
+WantedBy=multi-user.target
