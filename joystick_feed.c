@@ -51,7 +51,7 @@ int joystick_loop(int fd, int endpoint_fd)
 				// for vehicle -127 (L), 0 (C), 127 (R)
 				state.steering = ev.value - 127;
 				break;
-			// Rerverse
+			// Reverse
 			case 2:
 				// from joystick 0 - 255
 				// for vehicle -127, 0
